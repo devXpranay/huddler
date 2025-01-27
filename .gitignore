@@ -1,0 +1,74 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+dist/
+build/
+
+# Go
+/bin/
+/pkg/
+*.exe
+*.test
+*.out
+*.log
+go.sum
+go.mod
+
+# Docker
+*.dockerignore
+.docker/
+Dockerfile
+docker-compose.yml
+
+# Kubernetes
+*.yaml
+*.yml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Logs
+*.log
+
+# Environment Files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# MacOS
+.DS_Store
+
+# Linux
+*.swp
+
+# Terraform State Lock File
+.terraform.lock.hcl
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# GoLand IDE files
+.idea/
+
+# Generated files
+*.zip
+*.tar.gz
+
+# Temporary files
+*.bak
+*.tmp
