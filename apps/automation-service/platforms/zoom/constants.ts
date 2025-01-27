@@ -1,0 +1,25 @@
+export const ZOOM_CONSTANTS = {
+    URL_CONTAINS: "https://app.zoom.us/",
+    BOT_NAME: "Huddler Bot",
+    BOT_EMAIL: "huddler_xyz@gmail.com",
+    XPATHS: {
+        LAUNCH_MEETING: "//div[contains(@class, 'mbTuDeF1') and text()='Launch Meeting']",
+        JOIN_FROM_BROWSER: "//a[@role='button' and text()='Join from your browser']",
+        STOP_MIC_BUTTON: '//*[@id="preview-audio-control-button"]',
+        STOP_VIDEO_BUTTON: '//*[@id="preview-video-control-button"]',
+        NAME_INPUT: '//input[@id="input-for-name"]',
+        EMAIL_INPUT: '//input[@id="input-for-email"]',
+        JOIN_BUTTON: '//button[contains(@class, "preview-join-button")]',
+        VIEW_BUTTON: '//*[@id="react-aria8661599055-:r5:"]/button',
+        HIDE_SELF: '//*[@id="full-screen-dropdown"]/div[2]/a[4]',
+        PARTICIPANTS: '//*[@id="participant"]/button/div/span/span',
+        PARTICIPANTS_BUTTON: '//*[@id="participant"]',
+        LEAVE_BUTTON: '//*[@id="foot-bar"]/div[5]/button',
+        END_BUTTON: '//*[@id="foot-bar"]/div[5]/button',
+        END_FOR_ALL_MODAL: '//*[@id="wc-footer"]/div[2]/div[2]/div/div/button[1]',
+        LEAVE_MEETING_MODAL: '//*[@id="wc-footer"]/div[2]/div[2]/div/div/button',
+        LEAVE_MEETING_MODAL_2: '//*[@id="wc-footer"]/div[2]/div[2]/div/div/button[2]',
+        REMOVED_FROM_MEETING_MODAL: "/html/body/div[15]/div/div/div",
+        REMOVED_EXIT_BUTTON: "/html/body/div[15]/div/div/div/div[2]/div/div/button",
+    }
+};
