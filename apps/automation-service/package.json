@@ -1,0 +1,23 @@
+{
+  "name": "automation-service",
+  "version": "1.0.0",
+  "description": "This service starts a browser instance, joins the meet, records it and gracefully leaves the meeting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "automation-service"
+  ],
+  "author": "devXpranay",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.28.1"
+  },
+  "devDependencies": {
+    "@types/selenium-webdriver": "^4.1.28"
+  }
+}
