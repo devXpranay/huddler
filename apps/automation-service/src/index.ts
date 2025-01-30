@@ -1,12 +1,13 @@
 import { GoogleMeet, Zoom } from "./platforms";
 
 
-// An event bridge will trigger the start function
+// As soon as redis queue populates, it will trigger something, which will start this service which is dockerized. 
+// Meaning each meeting will be joined by a new container. 
 
 async function start(meetingUrl: string): Promise<void> {
     try {
         switch (meetingUrl) {
-            case "google-meet":
+            case "https://meet.google.com/auk-mfbr-gmq":
                 const googleMeet = new GoogleMeet();
                 await googleMeet.joinMeeting(meetingUrl);
                 break;
@@ -21,4 +22,6 @@ async function start(meetingUrl: string): Promise<void> {
         console.error("Error joining meeting", error);
     }
 }
+
+start("https://meet.google.com/auk-mfbr-gmq");
 

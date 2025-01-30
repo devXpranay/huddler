@@ -1,8 +1,9 @@
 import { Builder, Browser, By, until, WebDriver, WebElement } from 'selenium-webdriver';
 import { Options } from 'selenium-webdriver/chrome';
+import { CHROME_CONSTANTS } from './constants';
 
 export class Bot {
-    private driver: WebDriver | null;
+    public driver: WebDriver | null;
 
     constructor() {
         this.driver = null;
@@ -12,7 +13,9 @@ export class Bot {
         if (this.driver) return this.driver;
 
         const options = new Options();
-        options.addArguments('--headless');
+        CHROME_CONSTANTS.CHROME_OPTIONS.forEach((option)=> {
+            options.addArguments(option);
+        })
 
         try {
             this.driver = await new Builder()
