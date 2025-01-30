@@ -1,0 +1,28 @@
+{
+  "name": "huddler",
+  "version": "1.0.0",
+  "description": "Huddler monorepo",
+  "main": "none",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devXpranay/huddler.git"
+  },
+  "keywords": [
+    "huddler"
+  ],
+  "author": "devXpranay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devXpranay/huddler/issues"
+  },
+  "homepage": "https://github.com/devXpranay/huddler#readme",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
