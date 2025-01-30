@@ -12,18 +12,8 @@ build/
 *.test
 *.out
 *.log
-go.sum
-go.mod
 
-# Docker
-*.dockerignore
-.docker/
-Dockerfile
-docker-compose.yml
 
-# Kubernetes
-*.yaml
-*.yml
 
 # Terraform
 *.tfstate
