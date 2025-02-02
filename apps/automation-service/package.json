@@ -15,9 +15,14 @@
   "author": "devXpranay",
   "license": "ISC",
   "dependencies": {
-    "selenium-webdriver": "^4.28.1"
+    "@aws-sdk/client-s3": "^3.738.0",
+    "@aws-sdk/lib-storage": "^3.738.0",
+    "dotenv": "^16.4.7",
+    "selenium-webdriver": "^4.28.1",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
-    "@types/selenium-webdriver": "^4.1.28"
+    "@types/selenium-webdriver": "^4.1.28",
+    "@types/ws": "^8.5.14"
   }
 }
