@@ -49,24 +49,42 @@ export class Bot {
         }
     }
 
-    public async findElementXPath(selector: string): Promise<WebElement | null> {
+    public async findElementXPath(selector: string, ms?: number): Promise<WebElement | null> {
         try {
+            if (ms) {
+                const driver = await this.getDriver();
+                await driver.wait(until.elementLocated(By.xpath(selector)), ms);
+                const ele = await driver.findElement(By.xpath(selector));
+                console.log("element located: ", selector)
+                return ele;
+            }
             const driver = await this.getDriver();
             await driver.wait(until.elementLocated(By.xpath(selector)));
-            return await driver.findElement(By.xpath(selector));
+            const ele = await driver.findElement(By.xpath(selector));
+            console.log("element located: ", selector)
+            return ele;
         } catch (error) {
-            console.error("Error finding element by XPath", error);
+            // console.log("Error finding element by XPath", error);
             return null;
         }
     }
 
-    public async findElementCss(selector: string): Promise<WebElement | null> {
+    public async findElementCss(selector: string, ms: number): Promise<WebElement | null> {
         try {
+            if (ms) {
+                const driver = await this.getDriver();
+                await driver.wait(until.elementLocated(By.xpath(selector)), ms);
+                const ele = await driver.findElement(By.xpath(selector));
+                console.log("element located: ", selector)
+                return ele;
+            }
             const driver = await this.getDriver();
-            await driver.wait(until.elementLocated(By.css(selector)));
-            return await driver.findElement(By.css(selector));
+            await driver.wait(until.elementLocated(By.xpath(selector)));
+            const ele = await driver.findElement(By.xpath(selector));
+            console.log("element located: ", selector)
+            return ele;
         } catch (error) {
-            console.error("Error finding element by CSS", error);
+            // console.log("Error finding element by CSS", error);
             return null;
         }
     }

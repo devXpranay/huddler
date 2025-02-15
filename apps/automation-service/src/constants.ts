@@ -35,7 +35,7 @@ export const CHROME_CONSTANTS = {
         "--disable-extensions",
         "--disable-software-rasterizer",
         "--remote-debugging-port=9222",
-        "--headless",
+        // "--headless",
         "--force-device-scale-factor=1",
         "--high-dpi-support=1",
         "--disable-low-res-tiling",
@@ -102,7 +102,7 @@ export const JS_SCRIPTS = {
         const mediaRecorder = new MediaRecorder(combinedStream, {
             mimeType: "video/webm; codecs=vp8,opus",
             timeSlice: 10000,
-            videoBitsPerSecond: 3000000000,
+            videoBitsPerSecond: 1800000,
         });
 
         console.log("Starting media recording...");

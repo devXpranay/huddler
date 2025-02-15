@@ -70,6 +70,7 @@ function createWebSocketServer(port: number): ServerState {
 
   wss.on("connection", (ws: WebSocket) => {
     handleClientConnection(ws, clients, bucketName);
+    console.log(`Total clients connected: ${clients.size}`);
   });
 
   wss.on("error", (error: Error) => {
