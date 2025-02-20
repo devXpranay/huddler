@@ -4,7 +4,7 @@ import { GOOGLE_MEET_CONSTANTS, GOOGLE_MEET_CONSTANTS_ALT } from "./constants";
 import { JS_SCRIPTS } from "../../constants";
 
 export class GoogleMeet extends Bot {
-    public async joinMeeting(meetingUrl: string): Promise<void> {
+    public async joinMeeting(meetingUrl: string, botName: string): Promise<void> {
         try {
             await this.openUrl(meetingUrl);
             console.log("opened url");
@@ -12,7 +12,7 @@ export class GoogleMeet extends Bot {
             console.log("clicked got it popup");
 
             const nameInput = await this.findElementXPath(GOOGLE_MEET_CONSTANTS.YOUR_NAME_XPATH);
-            await nameInput?.sendKeys("Huddler");
+            await nameInput?.sendKeys(botName);
             console.log("entered bot name");
 
             const joinButton = await this.findElementXPath(GOOGLE_MEET_CONSTANTS.ASK_TO_JOIN_XPATH);
@@ -52,7 +52,6 @@ export class GoogleMeet extends Bot {
 
     private async monitorParticipantsAndLeave(): Promise<void> {
         try {
-            console.log("nigga")
             const ele = await Promise.any([
                 this.findElementXPath(GOOGLE_MEET_CONSTANTS.PARTICIPANTS_COUNTER_XPATH),
                 this.findElementXPath(GOOGLE_MEET_CONSTANTS_ALT.PARTICIPANTS_COUNTER_XPATH)

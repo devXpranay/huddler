@@ -1,17 +1,37 @@
 import { GoogleMeet, Zoom } from "./platforms";
 import { InitializeWebSocketServer } from "./ws/ws";
+import { createClient } from "redis";
 
+const redisClient = createClient({
+    url: "redis://redis:6379",
+});
 
-// As soon as redis queue populates, it will trigger something, which will start this service which is dockerized. 
-// Meaning each meeting will be joined by a new container. 
-
-async function start(meetingUrl: string): Promise<void> {
+async function connectRedis() {
     try {
-        switch (meetingUrl) {
-            case "https://meet.google.com/whn-wwgj-pnh":
+        await redisClient.connect();
+        console.log("Connected to Redis");
+    } catch (error) {
+        console.error("Error connecting to Redis", error);
+        process.exit(1);
+    }
+}
+
+const meetingUrl = process.env.MEETING_URL;
+const meetType = process.env.MEET_TYPE;
+const botName = process.env.BOT_NAME;
+
+if (!meetingUrl || !meetType || !botName) {
+    console.error("Missing required environment variables");
+    process.exit(1);
+}
+
+async function start(meetingUrl: string, meetType: string, botName: string): Promise<void> {
+    try {
+        switch (meetType) {
+            case "google":
                 const webSocketServer = InitializeWebSocketServer(8000);
                 const googleMeet = new GoogleMeet();
-                await googleMeet.joinMeeting(meetingUrl);
+                await googleMeet.joinMeeting(meetingUrl, botName);
                 webSocketServer.close();
                 break;
             case "zoom":
@@ -21,11 +41,10 @@ async function start(meetingUrl: string): Promise<void> {
             default:
                 console.error("Unsupported meeting platform");
         }
-
     } catch (error) {
         console.error("Error joining meeting", error);
     }
 }
 
-start("https://meet.google.com/whn-wwgj-pnh");
+start(meetingUrl, meetType, botName);
 

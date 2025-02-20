@@ -35,10 +35,10 @@ func PushTaskToQueue(ctx context.Context, queue string, message string) error {
 	return client.LPush(ctx, queue, message).Err()
 }
 
-func PopTaskFromQueue(ctx context.Context, queueName string) (any, error) {
+func PopTaskFromQueue(ctx context.Context, queueName string) (string, error) {
 	res, err := client.BRPop(ctx, 0*time.Second, queueName).Result()
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 
 	return res[1], nil

@@ -18,9 +18,15 @@ RUN apt-get update && \
     apt-get install -y google-chrome-stable fonts-liberation libnss3 libatk-bridge2.0-0 libxcomposite1 libasound2 libgbm1 libgtk-3-0 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN npm install ws
+RUN npm install
+
+RUN npm install redis @types/redis --save
 
 COPY . .
+
+ENV MEETING_URL=""
+ENV MEET_TYPE=""
+ENV BOT_NAME=""
 
 RUN npm run build
 
